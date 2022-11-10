@@ -5,39 +5,40 @@ import { Container } from "@mui/material"
 import { Button } from "./styles"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <Container
-      maxWidth="xl"
-      className="App"
-      // so we can either use the sx prop, or styles.ts to use css variables
-      sx={{ backgroundColor: "var(--primary-dark-whitelabelled)" }}
-    >
-      <Button variant="contained">
-        Yo, default mui color's been changed here
-      </Button>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </Container>
+    <>
+      <h1>
+        <ul>
+          <li>the container below is styled using MUI's sx object</li>
+          <li>that purple color is --primary-dark-whitelabelled</li>
+        </ul>
+      </h1>
+      <code>
+        {`<Container
+            maxWidth="xl"
+            className="App"
+            sx={{ backgroundColor: "var(--primary-dark-whitelabelled)" }}>`}
+        <br />
+        <br />
+      </code>
+      <Container
+        maxWidth="xl"
+        className="App"
+        // so we can either use the sx prop, or styles.ts to use css variables
+        sx={{ backgroundColor: "var(--primary-dark-whitelabelled)" }}
+      >
+        <h1>MUI Button + styles.ts + css var</h1>
+        <Button variant="contained">
+          {`background-color: var(--custom-success)`}
+        </Button>
+        <ul>
+          <li>
+            these css vars are injected into the dom via a separate/custom css
+            file. similar to what our php asset file can provide per tenant.
+          </li>
+        </ul>
+      </Container>
+    </>
   )
 }
 
